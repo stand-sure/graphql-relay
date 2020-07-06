@@ -9,7 +9,12 @@ const typeDefs = gql`
         """
         Gets a Friend.
         """
-        friend: Friend
+        getFriend(id: ID!): Friend
+    }
+
+    type Mutation {
+        createFriend(input: FriendInput) : Friend
+        updateFriend(id: ID!, input: FriendInput) : Friend
     }
 
     """
@@ -27,6 +32,29 @@ const typeDefs = gql`
     type Friend {
         """
         The auto-generated ID.
+        """
+        id: ID
+        """
+        The first name.
+        """
+        firstName: String
+        """
+        The last name.
+        """
+        lastName: String
+        """
+        The gender.
+        """
+        gender: Gender
+        """
+        The email address.
+        """
+        email: String
+    }
+
+    input FriendInput {
+        """
+        The ID.
         """
         id: ID
         """
