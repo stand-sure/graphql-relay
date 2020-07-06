@@ -10,11 +10,12 @@ const typeDefs = gql`
         Gets a Friend.
         """
         getFriend(id: ID!): Friend
+        getFriends: [Friend]
     }
 
     type Mutation {
-        createFriend(input: FriendInput) : Friend
-        updateFriend(id: ID!, input: FriendInput) : Friend
+        createFriend(input: FriendInput): Friend
+        updateFriend(id: ID!, input: FriendInput): Friend
     }
 
     """

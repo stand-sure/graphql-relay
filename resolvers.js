@@ -47,6 +47,8 @@ friends.set(firstFriend.id, firstFriend);
 
 const getFriend = ({ id }) => ({ ...friends.get(id) });
 
+const getFriends = () => [...friends.values()];
+
 const createFriend = function ({ input }) {
     const newFriend = makeFriend({ ...input });
     friends.set(newFriend.id, newFriend);
@@ -67,6 +69,7 @@ const updateFriend = function ({ id, input }) {
 
 const friendResolver = {
     getFriend,
+    getFriends,
     createFriend,
     updateFriend,
 };
