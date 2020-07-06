@@ -34,9 +34,10 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.10.4"
+    "@babel/preset-env": "^7.10.4",
+    "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "babel-node ./server.js"
+    "start": "nodemon ./server.js --exec babel-node --ext js --verbose"
   }
 }

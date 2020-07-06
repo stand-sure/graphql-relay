@@ -1,7 +1,7 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 
-import schema from "./schema";
+import { schema } from "./schema";
 
 const port = 8080;
 
@@ -13,8 +13,14 @@ app.get("/", (req, resp) => {
 });
 
 const rootValue = {
-    hello: () => {
-        return "hello";
+    friend: () => {
+        return {
+            id: "1",
+            firstName: "Adam",
+            lastName: "Smith",
+            gender: "MALE",
+            email: "adam.smith@example.com",
+        };
     },
 };
 
