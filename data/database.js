@@ -55,6 +55,9 @@ const Friend = class {
 
     /** @type {string|undefined} */
     image;
+
+    /** @type {string|undefined} */
+    language;
 };
 
 /**
@@ -64,6 +67,7 @@ const Friend = class {
  * @property {string} obj.gender
  * @property {string} obj.email
  * @property {string} obj.image
+ * @property {string} obj.language
  * @returns {Friend}
  */
 const createFriend = function createFriend({
@@ -72,6 +76,7 @@ const createFriend = function createFriend({
     gender,
     email,
     image,
+    language,
 }) {
     const newFriend = Object.freeze(
         Object.assign(Object.create(null), {
@@ -81,6 +86,7 @@ const createFriend = function createFriend({
             gender,
             email,
             image,
+            language,
             [Symbol.for("factory")]: createFriend,
         })
     );

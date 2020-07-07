@@ -10,5 +10,9 @@
         ],
         "@babel/preset-react"
     ],
-    "plugins": ["relay", "@babel/transform-runtime", "@babel/plugin-proposal-class-properties"]
+    "plugins": [
+        "relay",
+        "@babel/transform-runtime",
+        "@babel/plugin-proposal-class-properties"
+    ]
 }
