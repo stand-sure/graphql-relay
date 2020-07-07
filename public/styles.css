@@ -1,0 +1,18 @@
+.card .card-image > img {
+    max-height: 25vw;
+}
+
+.card .card-image::before {
+    padding-top: calc(9 / 16 * 100%);
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+}
+
+.card .card-image::after {
+    content: "";
+    display: table;
+    clear: both;
+}
