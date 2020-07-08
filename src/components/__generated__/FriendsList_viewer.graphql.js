@@ -9,7 +9,6 @@
 /*::
 import type { ReaderFragment } from 'relay-runtime';
 type Friend_friend$ref = any;
-type Friend_viewer$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type FriendsList_viewer$ref: FragmentReference;
 declare export opaque type FriendsList_viewer$fragmentType: FriendsList_viewer$ref;
@@ -23,7 +22,6 @@ export type FriendsList_viewer = {|
     |}>
   |},
   +id: string,
-  +$fragmentRefs: Friend_viewer$ref,
   +$refType: FriendsList_viewer$ref,
 |};
 export type FriendsList_viewer$data = FriendsList_viewer;
@@ -88,17 +86,12 @@ return {
       ],
       "storageKey": null
     },
-    (v0/*: any*/),
-    {
-      "args": null,
-      "kind": "FragmentSpread",
-      "name": "Friend_viewer"
-    }
+    (v0/*: any*/)
   ],
   "type": "User"
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '633a81b44918d1dd9a4b7d48420127fc';
+(node/*: any*/).hash = '8d36c9190e122e4868a230b0f145afc3';
 
 module.exports = node;

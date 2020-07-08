@@ -6,7 +6,7 @@ import { createFragmentContainer, graphql } from "react-relay";
 const FriendsList = ({ viewer }) => {
     const renderFriends = function renderFriends() {
         return viewer.friends.edges.map((edge) => (
-            <Friend key={edge.node.id} friend={edge.node} viewer={viewer} />
+            <Friend key={edge.node.id} friend={edge.node} /*viewer={viewer}*/ />
         ));
     };
 
@@ -31,7 +31,7 @@ const container = createFragmentContainer(FriendsList, {
                 }
             }
             id
-            ...Friend_viewer
+            # ...Friend_viewer
         }
     `,
 });

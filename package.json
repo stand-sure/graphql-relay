@@ -51,6 +51,8 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.10.4",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.128.0",
     "nodemon": "^2.0.4",
     "react-dom": "^16.13.1",
     "relay-compiler": "^9.1.0"

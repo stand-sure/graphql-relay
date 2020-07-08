@@ -1,7 +1,7 @@
 import React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 
-const Friend = ({ friend, viewer }) => (
+const Friend = ({ friend /*, viewer */ }) => (
     <li className="col l6 s12">
         <div className="card">
             <div className="card-image">
@@ -41,11 +41,11 @@ const container = createFragmentContainer(Friend, {
             image
         }
     `,
-    viewer: graphql`
-        fragment Friend_viewer on User {
-            id
-        }
-    `,
+    // viewer: graphql`
+    //     fragment Friend_viewer on User {
+    //         id
+    //     }
+    // `,
 });
 
 export { container as Friend };

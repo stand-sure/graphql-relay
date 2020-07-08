@@ -40,10 +40,6 @@ fragment Friend_friend on Friend {
   image
 }
 
-fragment Friend_viewer on User {
-  id
-}
-
 fragment FriendsList_viewer on User {
   friends {
     edges {
@@ -54,7 +50,6 @@ fragment FriendsList_viewer on User {
     }
   }
   id
-  ...Friend_viewer
 }
 
 fragment Friends_viewer on User {
@@ -198,7 +193,7 @@ return {
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  viewer {\n    ...Friends_viewer\n    id\n  }\n}\n\nfragment Friend_friend on Friend {\n  id\n  firstName\n  lastName\n  gender\n  language\n  email\n  image\n}\n\nfragment Friend_viewer on User {\n  id\n}\n\nfragment FriendsList_viewer on User {\n  friends {\n    edges {\n      node {\n        id\n        ...Friend_friend\n      }\n    }\n  }\n  id\n  ...Friend_viewer\n}\n\nfragment Friends_viewer on User {\n  id\n  ...FriendsList_viewer\n}\n"
+    "text": "query AppQuery {\n  viewer {\n    ...Friends_viewer\n    id\n  }\n}\n\nfragment Friend_friend on Friend {\n  id\n  firstName\n  lastName\n  gender\n  language\n  email\n  image\n}\n\nfragment FriendsList_viewer on User {\n  friends {\n    edges {\n      node {\n        id\n        ...Friend_friend\n      }\n    }\n  }\n  id\n}\n\nfragment Friends_viewer on User {\n  id\n  ...FriendsList_viewer\n}\n"
   }
 };
 })();
