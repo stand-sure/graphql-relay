@@ -6,7 +6,6 @@ import {
     connectionFromArray,
     fromGlobalId,
     nodeDefinitions,
-    toGlobalId,
     globalIdField,
 } from "graphql-relay";
 
@@ -21,7 +20,6 @@ import {
 
 const { nodeInterface, nodeField } = nodeDefinitions(
     (globalId) => {
-        debugger;
         const { type, id } = fromGlobalId(globalId);
         if (type === "Friend") {
             return getFriend(id);
@@ -32,7 +30,6 @@ const { nodeInterface, nodeField } = nodeDefinitions(
         return null;
     },
     (obj) => {
-        debugger;
         if (obj[Symbol.for("factory")] === createFriend) {
             return GraphQLFriend;
         } else if (obj[Symbol.for("factory")] === createUser) {
@@ -42,6 +39,44 @@ const { nodeInterface, nodeField } = nodeDefinitions(
         return null;
     }
 );
+
+const GraphQLFriend = new GraphQLObjectType({
+    name: "Friend",
+    // @ts-ignore
+    fields: () => ({
+        id: globalIdField("Friend"),
+        firstName: {
+            type: GraphQLString,
+            description: "First name",
+        },
+        lastName: {
+            type: GraphQLString,
+            description: "Last name",
+        },
+        gender: {
+            type: GraphQLString,
+            description: "Gender",
+        },
+        language: {
+            type: GraphQLString,
+            description: "Language (spoken)",
+        },
+        email: {
+            type: GraphQLString,
+            description: "Email address",
+        },
+        image: {
+            type: GraphQLString,
+            description: "Image URL [not validated]",
+        },
+    }),
+    interface: [nodeInterface],
+});
+
+const { connectionType: friendsConnection } = connectionDefinitions({
+    name: "Friend",
+    nodeType: GraphQLFriend,
+});
 
 const GraphQLUser = new GraphQLObjectType({
     name: "User",
@@ -55,39 +90,6 @@ const GraphQLUser = new GraphQLObjectType({
         },
     }),
     interface: [nodeInterface],
-});
-16;
-
-const GraphQLFriend = new GraphQLObjectType({
-    name: "Friend",
-    // @ts-ignore
-    fields: () => ({
-        id: globalIdField("Friend"),
-        firstName: {
-            type: GraphQLString,
-        },
-        lastName: {
-            type: GraphQLString,
-        },
-        gender: {
-            type: GraphQLString,
-        },
-        language: {
-            type: GraphQLString,
-        },
-        email: {
-            type: GraphQLString,
-        },
-        image: {
-            type: GraphQLString,
-        },
-    }),
-    interface: [nodeInterface],
-});
-
-const { connectionType: friendsConnection } = connectionDefinitions({
-    name: "Friend",
-    nodeType: GraphQLFriend,
 });
 
 const Query = new GraphQLObjectType({

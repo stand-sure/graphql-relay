@@ -55,10 +55,22 @@ type FriendEdge {
 type Friend {
   """The ID of an object"""
   id: ID!
+
+  """First name"""
   firstName: String
+
+  """Last name"""
   lastName: String
+
+  """Gender"""
   gender: String
+
+  """Language (spoken)"""
   language: String
+
+  """Email address"""
   email: String
+
+  """Image URL [not validated]"""
   image: String
 }
