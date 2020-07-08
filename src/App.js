@@ -29,25 +29,32 @@ const modernEnvironment = new Environment({
 
 const mountNode = document.getElementById("root");
 
-ReactDOM.render(
-    <QueryRenderer
-        environment={modernEnvironment}
-        query={graphql`
+const query = graphql`
             query AppQuery {
                 viewer {
                     ...Friends_viewer
                 }
             }
-        `}
-        variables={{}}
-        render={({ error, props }) => {
-            if (props) {
-                // @ts-ignore
-                return <Friends viewer={props.viewer} />;
-            } else {
-                return <div>Loading...</div>;
-            }
-        }}
+        `;
+
+const variables = {};
+
+const render = ({ error, props }) => {
+    if (props) {
+        // @ts-ignore
+        return <Friends viewer={props.viewer} />;
+    }
+    else {
+        return <div>Loading...</div>;
+    }
+};
+
+ReactDOM.render(
+    <QueryRenderer
+        environment={modernEnvironment}
+        query={query}
+        variables={variables}
+        render={render}
     />,
     mountNode
 );
