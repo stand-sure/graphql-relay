@@ -55,7 +55,7 @@
     "flow-bin": "^0.129.0",
     "nodemon": "^2.0.4",
     "react-dom": "^16.13.1",
-    "relay-compiler": "^9.1.0"
+    "relay-compiler": "^14.1.0"
   },
   "scripts": {
     "start": "nodemon ./server.js --exec babel-node --ext js --verbose",
